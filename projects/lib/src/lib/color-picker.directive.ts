@@ -157,6 +157,10 @@ export class ColorPickerDirective implements OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: any): void {
+    if (changes.cpDisabled && this.cpDisabled) {
+      this.closeDialog()
+    }
+
     if (changes.cpToggle && !this.cpDisabled) {
       if (changes.cpToggle.currentValue) {
         this.openDialog()
